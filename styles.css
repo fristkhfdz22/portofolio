@@ -1,0 +1,298 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background-color: #000; /* Background color of the page */
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.header {
+    position: relative;
+    height: 100vh;
+    background: url('hero-background.jpg') no-repeat center center/cover;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    backdrop-filter: blur(5px); /* Blurs the background */
+    padding: 1em 0;
+    z-index: 1000;
+    transition: background 0.3s;
+}
+
+.nav:hover {
+    background: rgba(0, 0, 0, 0.9); /* Darker background on hover */
+}
+
+.nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #6a0dad; /* Purple color */
+    text-decoration: none;
+}
+
+.nav-toggle {
+    display: none;
+}
+
+.nav-toggle-label {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    border: none;
+    background: none;
+    padding: 0.5em;
+    z-index: 1010;
+}
+
+.nav-toggle-icon {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #fff;
+    margin: 5px 0;
+    transition: all 0.3s;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 1.5em;
+}
+
+.nav-menu li {
+    position: relative;
+}
+
+.nav-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #6a0dad; /* Purple color */
+}
+
+.nav-menu li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background: #6a0dad; /* Purple color */
+    transition: width 0.3s;
+}
+
+.nav-menu li:hover::after {
+    width: 100%;
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 0.75em 1.5em;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #6a0dad; /* Purple color */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #4b0082; /* Darker purple color */
+    transform: scale(1.1); /* Slightly enlarge the button on hover */
+}
+
+.about, .projects, .contact {
+    padding: 4em 0;
+    background-color: #222;
+}
+
+.about h2, .projects h2, .contact h2 {
+    font-size: 2.5em;
+    margin-bottom: 1em;
+    text-align: center;
+}
+
+.project-grid {
+    display: flex;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+.project-card {
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 300px;
+    transition: transform 0.3s;
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+}
+
+.project-info {
+    padding: 1em;
+}
+
+.project-card:hover {
+    transform: scale(1.05);
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #222;
+    flex-wrap: wrap;
+}
+
+.contact-left, .contact-right {
+    flex: 1;
+    padding: 2em;
+    background-color: #333;
+    border-radius: 10px;
+    margin: 1em;
+}
+
+.contact-left {
+    max-width: 600px;
+}
+
+.contact-right {
+    max-width: 400px;
+}
+
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.contact input, .contact textarea {
+    padding: 1em;
+    border: none;
+    border-radius: 5px;
+    background: #444;
+    color: #fff;
+}
+
+.contact textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.contact button {
+    padding: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #6a0dad; /* Purple color */
+    color: #fff;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.contact button:hover {
+    background-color: #4b0082; /* Darker purple color */
+}
+
+.footer {
+    background-color: #111;
+    padding: 1em 0;
+    text-align: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px; /* Adjust based on navbar height */
+        left: 0;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 1em;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        transition: transform 0.3s ease;
+        transform: translateY(-100%);
+    }
+
+    .nav-menu.active {
+        display: flex;
+        transform: translateY(0);
+    }
+
+    .nav-toggle:checked + .nav-toggle-label + .nav-menu {
+        display: flex;
+        transform: translateY(0);
+    }
+
+    .nav-toggle-label {
+        display: flex;
+    }
+
+    .nav-toggle-icon:nth-child(1) {
+        transform: translateY(-7px);
+    }
+
+    .nav-toggle-icon:nth-child(2) {
+        opacity: 1;
+    }
+
+    .nav-toggle:checked + .nav-toggle-label .nav-toggle-icon:nth-child(1) {
+        transform: rotate(45deg);
+    }
+
+    .nav-toggle:checked + .nav-toggle-label .nav-toggle-icon:nth-child(2) {
+        opacity: 0;
+    }
+
+    .nav-toggle:checked + .nav-toggle-label .nav-toggle-icon:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+}
